@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace FutureValue
 {
     public partial class frmFutureValue : Form
@@ -22,8 +24,10 @@ namespace FutureValue
 
                 decimal futureValue = CalculateFutureValue(monthlyInvestment, monthlyInterestRate, months);
 
-                txtFutureValue.Text = futureValue.ToString("p");
+                txtFutureValue.Text = futureValue.ToString("c");
                 txtMonthlyInvestment.Focus();
+
+                Debug.WriteLine($"Monthly Investment: {monthlyInvestment} Monthly Interest Rate:{monthlyInterestRate} Months:{months} Future Value: {futureValue}");
             }
             catch (Exception ex)
             {
